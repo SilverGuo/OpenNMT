@@ -1,0 +1,41 @@
+# enfr
+
+## corpus
+- europarl
+- common crawl
+- undoc
+- giga
+- newstest (dev 2015)
+
+### to download
+- GlobalVoices
+- TedTalk
+- JRC-Acquis
+- EAC
+- Tatoeba 
+
+## data clean
+```bash
+# TBD
+```
+
+## normalization
+some uniform transformation on the source sequences to identify and protect some specific sequences (for instance url), normalize characters (for instance all types of quotes, unicode variants) or even to normalize some variants (like dates) into unique representation simpler for the translation process
+```bash
+# TBD
+```
+
+
+## bpe
+segment text into subword units
+```bash
+th tools/learn_bpe.lua -size 32000 -save_bpe /path/to/bpe -tok_mode aggressive -tok_segment_numbers -tok_case_feature < /path/to/input
+```
+
+## tokenization
+transform the sentence into a sequence of space-separated tokens together with possible features
+```bash
+th  tools/tokenize.lua -bpe_model /path/to/bpe -mode aggressive -segment_numbers -case_feature -joiner_annotate -nparallel 20 < /path/to/input > /path/to/input_tok
+```
+
+
