@@ -25,7 +25,6 @@ some uniform transformation on the source sequences to identify and protect some
 # TBD
 ```
 
-
 ## bpe
 segment text into subword units
 ```bash
@@ -37,7 +36,6 @@ transform the sentence into a sequence of space-separated tokens together with p
 ```bash
 th  tools/tokenize.lua -bpe_model /path/to/bpe -mode aggressive -segment_numbers -case_feature -joiner_annotate -nparallel 20 < /path/to/input > /path/to/input_tok
 ```
-
 
 ## preprocess
 ```bash
