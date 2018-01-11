@@ -34,7 +34,7 @@ th tools/learn_bpe.lua -size 32000 -save_bpe /path/to/bpe -tok_mode aggressive -
 ## tokenization
 transform the sentence into a sequence of space-separated tokens together with possible features
 ```bash
-th  tools/tokenize.lua -bpe_model /path/to/bpe -mode aggressive -segment_numbers -case_feature -joiner_annotate -nparallel 20 < /path/to/input > /path/to/input_tok
+th tools/tokenize.lua -bpe_model /path/to/bpe -mode aggressive -segment_numbers -case_feature -joiner_annotate -nparallel 20 < /path/to/input > /path/to/input_tok
 ```
 
 ## preprocess
