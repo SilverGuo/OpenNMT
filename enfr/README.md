@@ -47,5 +47,8 @@ th preprocess.lua -train_src /train/src -train_tgt /train/tgt -valid_src /valid/
 th train.lua -layers 4 -word_vec_size 800 -encoder_type brnn -residual -rnn_size 800 -start_decay_at 6 -end_epoch 20 -gpuid 1 -data /load/data -save_model /save/model -log_file /save/log
 ```
 
+## release
+th tools/release_model.lua -gpuid 1 -model /path/model
+
 
 
