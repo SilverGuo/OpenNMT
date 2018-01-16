@@ -1,18 +1,20 @@
 # enfr
 
-## corpus
+## processed
 - europarl
+- Tatoeba 
+- newstest (dev 2015)
+
+## to clean
 - common crawl
 - undoc
 - giga
-- newstest (dev 2015)
 
 ### to download
 - GlobalVoices
 - TedTalk
 - JRC-Acquis
 - EAC
-- Tatoeba 
 
 ## data clean
 ```bash
