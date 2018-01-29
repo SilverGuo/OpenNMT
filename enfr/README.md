@@ -30,13 +30,13 @@ some uniform transformation on the source sequences to identify and protect some
 ## bpe
 segment text into subword units
 ```bash
-th tools/learn_bpe.lua -size 32000 -save_bpe /path/to/bpe -tok_mode aggressive -tok_segment_numbers -tok_case_feature < /path/to/input
+th tools/learn_bpe.lua -tok_mode aggressive -tok_segment_numbers -tok_case_feature -size 32000 -save_bpe /path/to/bpe < /path/to/input
 ```
 
 ## tokenization
 transform the sentence into a sequence of space-separated tokens together with possible features
 ```bash
-th tools/tokenize.lua -bpe_model /path/to/bpe -mode aggressive -segment_numbers -case_feature -joiner_annotate -nparallel 20 < /path/to/input > /path/to/input_tok
+th tools/tokenize.lua -mode aggressive -segment_numbers -case_feature -joiner_annotate -nparallel 20 -bpe_model /path/to/bpe < /path/to/input > /path/to/input_tok
 ```
 
 ## preprocess
