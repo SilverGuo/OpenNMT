@@ -18,6 +18,10 @@ local options = {
     {
       enum = { 'DEBUG', 'INFO', 'WARNING', 'ERROR', 'NONE' }
     }
+  },
+  {
+    '-log_tag', '',
+    [[Add specific tag to each log for better log processing in complex workflow.]]
   }
 }
 
@@ -39,7 +43,7 @@ Example:
     logger:shutDown()
 
 ]]
-function Logger:__init(logFile, disableLogs, logLevel)
+function Logger:__init(logFile, disableLogs, logLevel, logTag)
   logFile = logFile or ''
   self.jsonLog = logFile:sub(-5) == '.json'
   disableLogs = disableLogs or false
@@ -52,13 +56,14 @@ function Logger:__init(logFile, disableLogs, logLevel)
     self:setVisibleLevel(logLevel)
   end
   if string.len(logFile) > 0 then
-    self.logFile = io.open(logFile, (self.jsonLog and 'w') or 'a')
+    self.logFile = onmt.utils.Error.assert(io.open(logFile, (self.jsonLog and 'w') or 'a'))
     if self.jsonLog then
       self.logFile:write("[\n");
     end
   else
     self.logFile = nil
   end
+  self.logTag = logTag
 end
 
 local function jsonize(msg)
@@ -82,6 +87,9 @@ function Logger:log(message, level)
     end
   else
     local msgFormatted = string.format('[%s %s] %s', timeStamp, level, message)
+    if self.logTag and self.logTag ~= '' then
+      msgFormatted = self.logTag..' '..msgFormatted
+    end
     if (not self.mute) and self:_isVisible(level) then
       print (msgFormatted)
     end
