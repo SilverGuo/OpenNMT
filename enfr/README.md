@@ -3,6 +3,7 @@
 ## processed
 - europarl
 - Tatoeba 
+- JRC-Acquis
 - newstest (dev 2015)
 
 ## to clean
@@ -13,7 +14,6 @@
 ### to download
 - GlobalVoices
 - TedTalk
-- JRC-Acquis
 - EAC
 
 ## data clean
